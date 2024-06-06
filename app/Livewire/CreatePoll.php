@@ -7,18 +7,19 @@ use Livewire\Component;
 class CreatePoll extends Component
 {
 
-    public $todos = [];
+    public $title;
+    public $options = ['First', 'Second', 'Third', 'Fourth'];
  
-    public $todo = '';
- 
-    public function add()
-    {
-        $this->todos[] = $this->todo;
- 
-        $this->todo = '';
-    }
-        public function render()
-    {
+    
+    public function render(){
         return view('livewire.create-poll');
     }
+
+    public function addOption(){
+        $this->options[] = '';
+    }
+
+    // public function mount(){
+        
+    // }    
 }

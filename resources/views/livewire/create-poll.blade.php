@@ -1,11 +1,22 @@
 <div>
-    <input type="text" wire:model="todo" placeholder="Todo..."> 
- 
-    <button wire:click="add">Add Todo</button>
- 
-    <ul>
-        @foreach ($todos as $todo)
-            <li>{{ $todo }}</li>
-        @endforeach
-    </ul>
+    <form action="">
+        <label for="">Poll Title</label>
+
+        <input type="text" wire:model="title" />
+
+        <div class="mt-4">
+            <button class="btn" wire:click.prevent="addOption">
+                Add Option!
+            </button>
+        </div>
+
+        <div class="mt-4">
+            @foreach($options as $index => $option)
+                <div>
+                    {{$index}} - {{$option}}
+                </div>
+            @endforeach
+        </div>
+
+    </form>
 </div>
