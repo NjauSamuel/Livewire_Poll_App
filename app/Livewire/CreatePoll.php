@@ -61,6 +61,9 @@ class CreatePoll extends Component
         // )->options()->createMany(collect($this->options)->map(fn($option) => ['name' => $option])->all());
 
         $this->reset(['title', 'options']);
+
+        $this->dispatch('pollCreated');
+
     }
 
     // public function mount(){
