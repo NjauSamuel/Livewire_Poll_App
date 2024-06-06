@@ -1,5 +1,5 @@
 <div>
-    <form action="">
+    <form wire:submit.prevent="createPoll">
         <label for="">Poll Title</label>
 
         <input type="text" wire:model="title" />
@@ -27,6 +27,8 @@
 
             @endforeach
         </div>
+
+        <button type="submit" class="btn mt-5">Create Poll</button>
 
     </form>
 </div>
