@@ -10,6 +10,16 @@ class CreatePoll extends Component
 
     public $title;
     public $options = [];
+
+    protected $rules = [
+        'title' => 'required|min:3|max:255',
+        'options' => 'required|array|min:1|max:25',
+        'options.*' => 'required|min:1|max:255'
+    ];
+
+    protected $messages = [
+        'options.*' => "The option can't be empty. "
+    ];
  
     
     public function render(){
@@ -27,7 +37,14 @@ class CreatePoll extends Component
 
     }
 
+    public function updated($propertyName) {
+        $this->validateOnly($propertyName);
+    }
+
     public function createPoll(){
+
+        $this->validate();
+
         $poll = Poll::create([
             'title' => $this->title
         ]);
