@@ -36,6 +36,13 @@ class CreatePoll extends Component
             $poll->options()->create(['name' => $optionName]);
         }
 
+        // Instead of adding the additional loop above, you can also do the following (CreateMany)
+        // to replace the loop:
+
+        // $poll = Poll::create(
+        //     ['title' => $this->title]
+        // )->options()->createMany(collect($this->options)->map(fn($option) => ['name' => $option])->all());
+
         $this->reset(['title', 'options']);
     }
 
